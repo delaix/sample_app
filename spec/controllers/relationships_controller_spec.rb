@@ -29,7 +29,7 @@ describe RelationshipsController do
     it "should create a relationship with AJAX" do
       lambda do
         xhr :post, :create, :relationship => { :followed_id => @followed }
-        response.should be_redirect
+        response.should be_success
       end.should change(Relationship, :count).by(1)
     end
   end
@@ -52,7 +52,7 @@ describe RelationshipsController do
     it "should destroy a relationship wit AJAX" do
       lambda do
         xhr :delete, :destroy, :id => @relationship
-        response.should be_redirect
+        response.should be_success
       end.should change(Relationship, :count).by(-1)
     end
   end
